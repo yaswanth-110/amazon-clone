@@ -1,0 +1,15 @@
+.checkout{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.checkout_ad{
+    height: 150px;
+    width: 900px;
+    margin-bottom: 10px;
+}
+
+h2{
+  border-bottom: 1px solid;
+}
