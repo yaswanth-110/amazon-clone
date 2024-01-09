@@ -2,12 +2,17 @@ import React, { useContext } from "react";
 import rating_logo from "./assets/star.png";
 import classes from "./CheckoutProduct.module.css";
 import { StateContext } from "./StateProvider";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const CheckoutProduct = ({ id, title, image, price, rating }) => {
   const [{ Cart }, dispatch] = useContext(StateContext);
   const removeFromCart = () => {
     dispatch({
       type: "REMOVE_FROM_CART",
       id: id,
+    });
+    toast.success(`${title}    item is removed from the Cart`, {
+      position: toast.POSITION.BOTTOM_RIGHT,
     });
   };
   return (

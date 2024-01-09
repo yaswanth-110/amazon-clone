@@ -22,12 +22,15 @@
 }
 
 
+
+
 .header_searchInput{
     height: 2px;
     padding: 10px;
     border: none;
     outline: none;
     width: 100%;
+    border-radius: 2px 0 0 2px;
 
 }
 
@@ -35,6 +38,8 @@
     background-color:#cd9052;
     height: 12px !important;
     padding: 4px;
+    border-radius: 0 2px 2px 0;
+
 
 }
 
@@ -69,6 +74,7 @@
 }
 .header_optionBasket{
     display: flex;
+    align-items: center;
     
 }
 

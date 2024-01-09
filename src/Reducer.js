@@ -1,16 +1,7 @@
 import startup_logo from "./assets/learn_start_up.png";
 
 export const initialState = {
-  Cart: [
-    {
-      id: "344434",
-      title:
-        "The Learn Statup:How constant innovation radically increases business.",
-      image: startup_logo,
-      price: 11.96,
-      rating: 5,
-    },
-  ],
+  Cart: [],
   user: null,
 };
 
@@ -18,7 +9,7 @@ export const getCartTotal = (Cart) =>
   Cart?.reduce((amount, item) => item.price + amount, 0);
 
 export const reducer = (state, action) => {
-  console.log(state);
+  console.log(action);
   switch (action.type) {
     case "ADD_TO_CART":
       return {
@@ -36,6 +27,11 @@ export const reducer = (state, action) => {
       }
       return { ...state, Cart: newCart };
       break;
+    case "SET_USER":
+      return {
+        ...state,
+        user: action.user,
+      };
     default:
       return state;
   }

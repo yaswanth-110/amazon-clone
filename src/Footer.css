@@ -1,0 +1,64 @@
+.footer{
+    width: 100%;
+    height: 300px;
+}
+
+.footer_button{
+    width: 100%;
+    padding:10px 0;
+    background-color: #37475A;
+    color: white;
+    font-size: large;
+}
+
+.footer_info{
+    display: flex;
+    background-color:rgb(35,47,62) ;
+    color: white;
+    height: 100%;
+    justify-content:space-around;
+    padding-top: 50px;
+    
+
+}
+
+.footer_about{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.footer_connect{
+    display: flex;
+    flex-direction: column;
+
+}
+.footer_link{
+    color: white;
+    text-decoration: none;
+    margin: 0.2em 0;
+    transition: all 2s ease-out;
+
+
+}
+.footer_link:hover{
+    text-decoration: underline;
+
+}
+.footer_money{
+    display: flex;
+    flex-direction: column;
+
+}
+span{
+    margin: 0.2em 0;
+}
+
+strong{
+    margin-bottom:0.2em ;
+}
+
+
+
+
+

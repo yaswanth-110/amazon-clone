@@ -4,9 +4,9 @@ import "./Checkout.css";
 import CheckoutProduct from "./CheckoutProduct";
 import Subtotal from "./Subtotal";
 import amazon_ad from "./assets/amazon_ad.png";
+import FlipMove from "react-flip-move";
 function Checkout() {
-  const [{ Cart }, dispatch] = useContext(StateContext);
-  console.log(useContext(StateContext));
+  const [{ Cart, user }, dispatch] = useContext(StateContext);
   return (
     <div className="checkout">
       <div className="checkout_left">
@@ -17,9 +17,12 @@ function Checkout() {
           </div>
         ) : (
           <div>
+            <h2>{`Hello ${user && user.email}`}</h2>
             <h2 style={{ marginBottom: "10px" }}>Your Shopping Cart</h2>
+            {/* <FlipMove> */}
             {Cart?.map((item) => (
               <CheckoutProduct
+                key={item.id}
                 id={item.id}
                 title={item.title}
                 image={item.image}
@@ -27,6 +30,7 @@ function Checkout() {
                 rating={item.rating}
               />
             ))}
+            {/* </FlipMove> */}
           </div>
         )}
       </div>

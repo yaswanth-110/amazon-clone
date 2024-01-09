@@ -9,7 +9,16 @@
     z-index: 1;
     padding: 10px;
     width: 100%;
+    transition:all 0.25s  ease-out;
     
+    
+}
+
+.product:hover{
+    transform: translateY(-0.05rem);
+    box-shadow: 3px 3px 1rem;
+    cursor: pointer;
+
 }
 .product_info{
     /* height: 100px; */
@@ -36,5 +45,10 @@
 .product > button{
      background-color: #f0c14b;
      border: 1px solid #f0c14b;
+     border-radius: 2px;
      
+}
+
+.product > button:hover{
+    border: 2px solid lightblue ;
 }

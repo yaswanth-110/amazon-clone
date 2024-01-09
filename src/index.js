@@ -4,11 +4,13 @@ import "./index.css";
 import App from "./App";
 import { StateProvider } from "./StateProvider";
 import { initialState, reducer } from "./Reducer";
+import { ToastContainer } from "react-toastify";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <StateProvider initialState={initialState} reducer={reducer}>
     <App />
+    <ToastContainer />
   </StateProvider>
 );
 

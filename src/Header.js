@@ -4,8 +4,14 @@ import { Link } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import { StateContext, useStateValue } from "./StateProvider";
+import { auth } from "./Firebase";
 function Header() {
-  const [{ Cart }, dispatch] = useContext(StateContext);
+  const [{ Cart, user }, dispatch] = useContext(StateContext);
+  const handleAuthentication = () => {
+    if (user) {
+      auth.signOut();
+    }
+  };
   return (
     <>
       <nav className="header">
@@ -21,11 +27,15 @@ function Header() {
           <SearchIcon className="header_searchIcon" />
         </div>
 
-        <div className="header_nav">
-          <Link to="/login" className="header_link">
+        <div onClick={handleAuthentication} className="header_nav">
+          <Link to={!user && "/login"} className="header_link">
             <div className="header_option">
-              <span className="header_optionLineOne">hello Yash</span>
-              <span className="header_optionLineTwo">Signin</span>
+              <span className="header_optionLineOne">
+                {!user ? "Hello Guest" : user.email}
+              </span>
+              <span className="header_optionLineTwo">
+                {user ? "Sign Out" : "Sign In"}
+              </span>
             </div>
           </Link>
           <Link to="/" className="header_link">
@@ -44,7 +54,7 @@ function Header() {
             <div className="header_optionBasket">
               <ShoppingBasketIcon />
               <span className="header_optionTwo header_optionBasketcount">
-                {Cart?.length}
+                {`Cart ${Cart?.length}`}
               </span>
             </div>
           </Link>

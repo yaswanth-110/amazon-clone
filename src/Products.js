@@ -1,7 +1,10 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import rating_logo from "./assets/star.png";
 import "./Products.css";
 import { StateContext } from "./StateProvider";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const Product = ({ id, title, image, price, rating }) => {
   const [{ Cart }, dispatch] = useContext(StateContext);
   const addtoCart = () => {
@@ -15,7 +18,12 @@ const Product = ({ id, title, image, price, rating }) => {
         rating: rating,
       },
     });
+    console.log("hi");
+    toast.success(`${title}    item is added to Cart`, {
+      position: toast.POSITION.BOTTOM_RIGHT,
+    });
   };
+
   return (
     <>
       <div className="product">
