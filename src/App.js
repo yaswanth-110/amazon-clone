@@ -11,6 +11,8 @@ import Aos from "aos";
 import Payment from "./Payment";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+import AdminPage from "./AdminPage";
+import Orders from "./Orders";
 
 const promise = loadStripe(
   "pk_test_51OWaiPSJTvmiOZYuUsBfQTlKEaU8xlbcq3LvktnJryxDag5eFoimWJ6iBRmmbZGPMkOmiOUYVlxc3nCOqI14BYAd00dkxck7zN"
@@ -49,6 +51,16 @@ function App() {
             }
           ></Route>
           <Route path="/login" element={<LoginPage />} />
+          <Route
+            path="/Orders"
+            element={
+              <>
+                <Header />
+
+                <Orders />
+              </>
+            }
+          />
 
           <Route
             path="/checkout"
@@ -70,6 +82,7 @@ function App() {
               </>
             }
           />
+          <Route path="/admin" element={<AdminPage />} />
         </Routes>
       </>
     </Router>

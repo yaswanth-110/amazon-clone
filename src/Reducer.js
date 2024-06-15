@@ -16,7 +16,6 @@ export const reducer = (state, action) => {
         ...state,
         Cart: [...state.Cart, action.item],
       };
-      break;
     case "REMOVE_FROM_CART":
       let newCart = [...state.Cart];
       const index = state.Cart.findIndex((item) => item.id === action.id);
@@ -26,7 +25,6 @@ export const reducer = (state, action) => {
         console.log("Can't remove item from this Cart");
       }
       return { ...state, Cart: newCart };
-      break;
     case "SET_USER":
       return {
         ...state,
